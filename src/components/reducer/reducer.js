@@ -1,20 +1,12 @@
-import {createContext,useState,useReducer} from 'react'
 
 
-export const CartContext =createContext({
-    items:[],
-    totalAmount: 0,
-    addItems:(items)=>{},
-    removeItems:(id)=>{},
-    addPlusItems:(items)=>{}
-})
 
-const defaultState ={
+const initialState ={
     items:[],
     totalAmount:0
 }
 
-const reducerState =(state,action)=>{
+export const reducerState =(state=initialState,action)=>{
     if(action.type === 'ADD_ITEM'){
         const totalPrice = state.totalAmount + action.item.amount * action.item.price
         const existingCartItemIndex=state.items.findIndex(item=>{
@@ -75,28 +67,5 @@ const reducerState =(state,action)=>{
             totalAmount:totalPrice
         }
     }
+    return state
 }
-
-
-
-const CartProvider =(props)=>{
-    const [reciveItems,setrecieveItems] = useState([])
-    const[cartState,dispatch]=useReducer(reducerState,defaultState)
-    const addItems =(items)=>{
-       dispatch({type:'ADD_ITEM',item:items})
-    }
-
-    const plusItems =(items)=>{
-        dispatch({type:'PLUS_ITEM',item:items})
-    }
-    const removeItems =(items)=>{
-      dispatch({type:'REMOVE_ITEMS',item:items})
-    }
-    return(
-        <CartContext.Provider value={{items:cartState.items,addItems:addItems,removeItems:removeItems,totalAmount:cartState.totalAmount,addPlusItems:plusItems}}>
-            {props.children}
-        </CartContext.Provider>
-    )
-}
-
-export default CartProvider

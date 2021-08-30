@@ -1,16 +1,16 @@
 import Modal from "../UI/Modal";
 import Cartitem from "./Cartitem";
 import classes from "./Cart.module.css";
-import { CartContext } from "../context/cart-context";
-import { useContext } from "react";
 import {Fragment} from 'react'
+import {connect} from 'react-redux'
+
+
 
 const Cart = (props) => {
-  const ctxCart = useContext(CartContext)
-  const items = ctxCart.items
-  const totalAmount = +ctxCart.totalAmount.toFixed(2)
-  console.log(items)
-  const content = items.map((meal) => {
+ 
+  const totalAmount = +props.totalAmount.toFixed(2)
+  
+  const content = props.items.map((meal) => {
     return (
       <Cartitem
         key={meal.id}
@@ -22,9 +22,10 @@ const Cart = (props) => {
       />
     );
   });
+  console.log(props.items)
   return (
     <Modal modalHandler={props.modalHandler}>
-      {totalAmount ? <Fragment>
+      {props.items.length  ? <Fragment>
       <ul className={classes.content}>
         {content}
       </ul>
@@ -54,4 +55,12 @@ const Cart = (props) => {
   );
 };
 
-export default Cart;
+const mapStateToProps=(state)=>{
+return{
+  items:state.items,
+  totalAmount:state.totalAmount
+}
+}
+
+
+export default connect(mapStateToProps)(Cart);

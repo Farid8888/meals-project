@@ -1,12 +1,12 @@
 import Input from '../../UI/Input'
 import classes from './MealForm.module.css'
-import {useState,useContext,useEffect,useRef} from 'react'
-import { CartContext } from '../../context/cart-context';
+import {useState,useRef} from 'react'
+
+import {connect} from 'react-redux'
 
 
 const MealForm = (props) => {
-  const ctxCart = useContext(CartContext)
-  const addItems = ctxCart.addItems
+ 
   
   const [otherAmount,setotherAmount] = useState('1')
   const [amountVal,setamountVal] = useState(false)
@@ -31,7 +31,7 @@ const addCartSubmit =(event)=>{
       amount:+otherAmount,
       id:props.id
     }
-    addItems(objCart)
+    props.addItems(objCart)
     console.log(objCart)
 }
 
@@ -49,4 +49,12 @@ const addCartSubmit =(event)=>{
   )
 };
 
-export default MealForm;
+
+  
+  const mapDispatchToProps=(dispatch)=>{
+      return{
+  addItems:(items)=>dispatch({type:'ADD_ITEM',item:items})
+      }
+  }
+
+export default connect(null,mapDispatchToProps)(MealForm);

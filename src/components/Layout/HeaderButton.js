@@ -1,13 +1,13 @@
-import {useContext,useEffect,useState} from 'react'
+import {useEffect,useState} from 'react'
 import CartIcon from '../Cart/CartIcon'
 import classes from './HeaderButton.module.css'
-import { CartContext } from '../context/cart-context'
+import {connect} from 'react-redux'
 
 const HeaderButton =(props)=>{
-    const ctxCart = useContext(CartContext)
+    
     const [itemsChange,setitemsChange] = useState(false)
-    const items = ctxCart.items
-
+    
+   const {items} =props
     useEffect(()=>{
         if(items.length === 0){
             return
@@ -17,7 +17,7 @@ const HeaderButton =(props)=>{
         setitemsChange(false)
       },300)
     },[items])
-   const count= items.reduce((total,item)=>{
+   const count= props.items.reduce((total,item)=>{
      return total + item.amount
     },0)
     const buttonsClasses = `${classes.btn} ${itemsChange ? classes.bump: ''}`
@@ -33,5 +33,12 @@ const HeaderButton =(props)=>{
     )
 }
 
+const mapStateToProps=(state)=>{
+  return{
+   items:state.items
+  }
 
-export default HeaderButton
+}
+
+
+export default connect(mapStateToProps)(HeaderButton)

@@ -1,24 +1,26 @@
 import Header from './components/Layout/Header'
 import Meal from './components/Meals/Meal'
-import Cart from './components/Cart/Cart'
+
 import {useState} from 'react'
+import {createStore} from 'redux'
+import {reducerState} from './components/reducer/reducer'
+import {Provider} from 'react-redux'
 
 function App() {
-  const [modal,setModal]=useState(false)
-  const modalHandler=()=>{
-    setModal(prevst=>{
-      return !prevst
-    })
-  }
+  
+  const store =createStore(reducerState)
+
+ 
   
   return (
+    <Provider store={store}>
     <div style={{height:'190vh'}}>
-     {modal && <Cart modalHandler={modalHandler}/>}
-      <Header modalHandler={modalHandler}/>
+      <Header />
       <main style = {{position:'relative',top:'-10rem'}}>
       <Meal/>
       </main>
     </div>
+    </Provider>
   );
 }
 

@@ -1,11 +1,9 @@
 import classes from './Cartitem.module.css'
-import { CartContext } from '../context/cart-context'
-import {useContext,useState} from 'react'
+import {connect} from 'react-redux'
+
 
 const Cartitem =(props)=>{
-    const ctxCart = useContext(CartContext)
-    const additems = ctxCart.addPlusItems
-    const removeItems = ctxCart.removeItems
+    
   
  return(
     <li className={classes.cartitem}>
@@ -18,13 +16,21 @@ const Cartitem =(props)=>{
         <span className={classes.amount}>x {props.amount}</span>
         </div>
         <div className={classes.btn}>
-            <button type='button' onClick={removeItems.bind(null,props.item)} >–</button>
-            <button type='button' onClick={()=>additems(props.item)}>+</button>
+            <button type='button' onClick={props.removeItems.bind(null,props.item)} >–</button>
+            <button type='button' onClick={()=>props.addItems(props.item)}>+</button>
         </div>
         </div>
     </li>
  )
 }
 
-export default Cartitem
+const mapDispatchToProps=(dispatch)=>{
+return{
+    addItems:(price)=>dispatch({type:'PLUS_ITEM',item:price}),
+    removeItems:(price)=>dispatch({type:'REMOVE_ITEMS',item:price})
+}
+}
+
+
+export default connect(null,mapDispatchToProps)(Cartitem)
 
