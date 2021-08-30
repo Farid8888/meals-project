@@ -1,0 +1,55 @@
+.names h3{
+    font-size: 1.5rem;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: 110px;
+}
+
+.price{
+    color: rgb(129, 64, 11);
+    font-weight: bold;
+    
+}
+
+.cartitem{
+    border-bottom: 3px solid rgb(150, 57, 3);
+}
+
+.spanflex{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.amount{
+    margin-left: 30px;
+    border:1px solid gray;
+    border-radius: 6px;
+    padding: 2px 10px;
+    font-weight: bold;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btn button{
+  margin-right: 10px;
+  font-size: 1.5rem;
+  border:1px solid rgb(199, 80, 1);
+  padding:2px 20px;
+  background-color: white;
+  border-radius: 6px;
+  color:rgb(199, 80, 1);
+  cursor: pointer;
+}
+
+.btn button:hover,
+.btn button:active{
+    background-color:rgb(199, 80, 1);
+    color:white
+}

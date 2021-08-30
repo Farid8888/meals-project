@@ -1,0 +1,22 @@
+.input{
+    margin: 5px 0;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.input label{
+    font-weight: bold;
+    font-size: 1rem;
+    margin-right: 10px;
+}
+
+.input input{
+    width: 30%;
+    height: 1.7rem;
+    border-radius: 6px;
+    border: 1px solid gray;
+
+}

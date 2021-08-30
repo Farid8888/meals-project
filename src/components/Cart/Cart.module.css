@@ -1,0 +1,56 @@
+.content{
+overflow: scroll;
+height: 13rem;
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.totalAmount{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.totalAmount span{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.btn{
+    text-align: end;
+}
+
+.close{
+    font-size: 1.1rem;
+    padding: 11px 33px;
+    border-radius: 3rem;
+    background-color: white;
+    border: none;
+    color: rgb(107, 51, 19);
+    cursor: pointer;
+    margin-right: 10px;
+    border:1px solid rgb(107, 51, 19);
+}
+
+.order{
+    font-size: 1.1rem;
+    padding: 11px 33px;
+    border-radius: 3rem;
+    background-color: rgb(107, 51, 19);
+    border: none;
+    color: white;
+    cursor: pointer;
+    border:1px solid rgb(107, 51, 19);
+}
+
+.close:hover{
+    background-color: rgb(107, 51, 19);
+    color: white;
+}
+
+.order:hover{
+    background-color:rgb(59, 25, 5);
+    border:1px solid rgb(107, 51, 19);
+}

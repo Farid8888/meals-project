@@ -1,0 +1,59 @@
+.btn{
+    background-color: rgb(75, 0, 0);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 16rem;
+    margin: 1rem 0;
+    padding: 10px 2.8rem;
+    border: none;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+.price{
+    background-color: rgb(163, 82, 27);
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 12px;
+    padding: 0 20px;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+}
+
+.btn:hover,
+.btn:active{
+    background-color: rgb(59, 27, 1);
+}
+
+.bump{
+    animation: bump 0.3s ease-out;
+}
+
+@keyframes bump {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(0.9);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }

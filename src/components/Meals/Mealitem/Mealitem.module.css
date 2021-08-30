@@ -1,0 +1,30 @@
+.items{
+    padding-bottom: 20px;
+    margin-top: 1rem;
+}
+
+.items h3{
+    margin: 5px 0;
+}
+
+.description{
+    font-style: italic;
+    font-weight: lighter;
+    margin-bottom: 7px;
+}
+
+.price{
+    color: rgb(131, 66, 28);
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.itemsli{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 1px solid gray;
+    width: 97%;
+}
+

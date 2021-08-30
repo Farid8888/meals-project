@@ -1,0 +1,19 @@
+.form{
+    text-align: end;
+}
+
+.btn{
+    font-size: 1.1rem;
+    padding: 6px 28px;
+    border-radius: 3rem;
+    background-color: rgb(107, 51, 19);
+    border: none;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn:hover,
+.btn:active{
+    background-color: rgb(54, 23, 1);
+}

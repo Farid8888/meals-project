@@ -1,0 +1,38 @@
+.backDrop{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top:0;
+    background-color: rgba(0, 0, 0, 0.76);
+    z-index: 100;
+}
+
+.overlay{
+    max-width: 90%;
+    width: 40rem;
+    left:calc(50% - 20rem);
+    position: fixed;
+    z-index: 150;
+    margin: auto;
+    top:8rem;
+    animation: overlay-appear 0.3s ease-out forwards; 
+}
+
+@keyframes overlay-appear{
+    from{
+        opacity: 0;
+        transform: translateY(-3rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@media(max-width:760px){
+    .overlay{
+        left:5%
+    }
+}
