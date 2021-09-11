@@ -1,10 +1,11 @@
 import classes from './Cartitem.module.css'
-import {connect} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 
 const Cartitem =(props)=>{
-    
-  
+    const dispatch =useDispatch()
+    const addItems=(price)=>dispatch({type:'PLUS_ITEM',item:price})
+    const removeItems=(price)=>dispatch({type:'REMOVE_ITEMS',item:price})
  return(
     <li className={classes.cartitem}>
         <div className={classes.main}>
@@ -16,21 +17,16 @@ const Cartitem =(props)=>{
         <span className={classes.amount}>x {props.amount}</span>
         </div>
         <div className={classes.btn}>
-            <button type='button' onClick={props.removeItems.bind(null,props.item)} >–</button>
-            <button type='button' onClick={()=>props.addItems(props.item)}>+</button>
+            <button type='button' onClick={removeItems.bind(null,props.item)} >–</button>
+            <button type='button' onClick={()=>addItems(props.item)}>+</button>
         </div>
         </div>
     </li>
  )
 }
 
-const mapDispatchToProps=(dispatch)=>{
-return{
-    addItems:(price)=>dispatch({type:'PLUS_ITEM',item:price}),
-    removeItems:(price)=>dispatch({type:'REMOVE_ITEMS',item:price})
-}
-}
 
 
-export default connect(null,mapDispatchToProps)(Cartitem)
+
+export default Cartitem
 

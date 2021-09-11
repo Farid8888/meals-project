@@ -2,15 +2,15 @@ import Modal from "../UI/Modal";
 import Cartitem from "./Cartitem";
 import classes from "./Cart.module.css";
 import {Fragment} from 'react'
-import {connect} from 'react-redux'
+import {useSelector} from 'react-redux'
 
 
 
 const Cart = (props) => {
- 
-  const totalAmount = +props.totalAmount.toFixed(2)
+ const items = useSelector(state=>state.items)
+  const totalAmount = useSelector(state=>+state.totalAmount.toFixed(2))
   
-  const content = props.items.map((meal) => {
+  const content = items.map((meal) => {
     return (
       <Cartitem
         key={meal.id}
@@ -25,7 +25,7 @@ const Cart = (props) => {
   console.log(props.items)
   return (
     <Modal modalHandler={props.modalHandler}>
-      {props.items.length  ? <Fragment>
+      {items.length  ? <Fragment>
       <ul className={classes.content}>
         {content}
       </ul>
@@ -55,12 +55,7 @@ const Cart = (props) => {
   );
 };
 
-const mapStateToProps=(state)=>{
-return{
-  items:state.items,
-  totalAmount:state.totalAmount
-}
-}
 
 
-export default connect(mapStateToProps)(Cart);
+
+export default Cart;
