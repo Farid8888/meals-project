@@ -15,7 +15,7 @@
     position: fixed;
     z-index: 150;
     margin: auto;
-    top:8rem;
+    top:5rem;
     animation: overlay-appear 0.3s ease-out forwards; 
 }
 

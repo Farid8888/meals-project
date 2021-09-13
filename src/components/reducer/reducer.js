@@ -66,6 +66,10 @@ export const reducerState =(state=initialState,action)=>{
             items:updatedItems,
             totalAmount:totalPrice
         }
+        
+    }
+    if(action.type === 'CLEAR'){
+        return initialState
     }
     return state
 }
