@@ -80,7 +80,7 @@ const reducerState =(state,action)=>{
 
 
 const CartProvider =(props)=>{
-    const [reciveItems,setrecieveItems] = useState([])
+
     const[cartState,dispatch]=useReducer(reducerState,defaultState)
     const addItems =(items)=>{
        dispatch({type:'ADD_ITEM',item:items})
